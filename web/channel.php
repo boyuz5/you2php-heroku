@@ -47,10 +47,10 @@ $(document).ready(function(){
  <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4 equipodiv order-md-1 order-lg-1 order-xs-2 order-sm-2">
   <div class="related">
       <p class="font-weight-bold h6 pb-1">Channel Information</p>
-       <span class="d-block py-3 fa fa-calendar"> Registered<?php echo date("Y-m-d", strtotime($channel['items'][0]['snippet']['publishedAt']));?></span>  
-       <span class="d-block py-3 fa fa-play"> <?php echo $channel['items'][0]['statistics']['viewCount']?>Views</span> 
-       <span class="d-block py-3 fa fa-user-circle-o"> <?php echo $channel['items'][0]['statistics']['subscriberCount']?>Subscribers</span>
-       <span class="d-block py-3 fa fa-globe"> From<?php if (array_key_exists('country',$channel['items'][0]['snippet'])) {echo get_country($channel['items'][0]['snippet']['country']);} else {echo 'Mars';}?></span> 
+       <span class="d-block py-3 fa fa-calendar"> Registered <?php echo date("Y-m-d", strtotime($channel['items'][0]['snippet']['publishedAt']));?></span>  
+       <span class="d-block py-3 fa fa-play"> <?php echo $channel['items'][0]['statistics']['viewCount']?> Views</span> 
+       <span class="d-block py-3 fa fa-user-circle-o"> <?php echo $channel['items'][0]['statistics']['subscriberCount']?> Subscribers</span>
+       <span class="d-block py-3 fa fa-globe"> From <?php if (array_key_exists('country',$channel['items'][0]['snippet'])) {echo get_country($channel['items'][0]['snippet']['country']);} else {echo 'Mars';}?></span> 
 
   </div>
   <div class="related text-nowrap">
