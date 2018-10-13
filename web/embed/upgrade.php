@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>检查更新</title>
+        <title>Check for update</title>
     </head>
     <body>
         <?php
@@ -19,13 +19,13 @@
         $up=json_decode($f,true);
         if ( (int)$up['time'] > (int)$Posttime ) {
             
-            echo '本程序已经有最新版本，请升级！</br>';
-           echo '当前版本：v'.$version.'</br>';
-           echo '最新版本：v'.$up['version'].'</br>';
-           echo '请从本地址下载最新版：<a href="'.$up['links'].'" target="_blank">'.$up['links'].'</a></br>';
-           echo '更新内容：'.$up['des'];
+            echo 'There is a new version</br>';
+           echo 'Current version：v'.$version.'</br>';
+           echo 'Newest version：v'.$up['version'].'</br>';
+           echo 'Please download from：<a href="'.$up['links'].'" target="_blank">'.$up['links'].'</a></br>';
+           echo 'Update log：'.$up['des'];
         } else{
-          echo '本程序已经是最新版，无需升级！'; 
+          echo 'Failed due to permission'; 
         }
         ?>    
 </body>
