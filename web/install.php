@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>You2PHP安装！</title>
+    <title>You2PHP install！</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://wangxiaoqing123.coding.me/hellocss.coding.me/pintuer.css">
@@ -58,9 +58,9 @@ date_default_timezone_set('PRC');
 if($_GET['step'] =='4' && !empty($_GET)){
 
  if(empty($_GET['step']) || empty($_GET['key']) ||empty($_GET['gjcode']) ||empty($_GET['title']) ||empty($_GET['sname']) ||empty($_GET['edkey']) ||empty($_GET['email']) ){
-     echo '您可能漏填了某些东西，请返回检查！！！';
+     echo 'You might have missed something, please double check.';
      echo '<div class="text-center padding-top">
-                    <button class="button bg-red padding-left margin-bottom" onclick="javascript:history.back(-1);">上一步</button>
+                    <button class="button bg-red padding-left margin-bottom" onclick="javascript:history.back(-1);">Previous step</button>
    
                 </div>';
                 exit();
@@ -81,26 +81,26 @@ $str.='?>';
 $fp=fopen('config.php',"w"); //写方式打开文件 
 $message=fwrite($fp,$str); //存入内容 
 if(!$message===false){
-    $sms='<div class="alert alert-green margin-top">	<span class="close rotate-hover padding-top"></span><strong>恭喜：</strong>本程序安装成功!</div>
-    <div class="margin-large text-center"><a href="./index.php" class="button bg-red ">进入首页</a></div>
-        <div class="alert alert-green margin-top">	<span class="close rotate-hover "></span><strong>提示:</strong>若程序无法正常工作，请编辑config.php文件查看的apiKey填写正确。或者检查config.php文件是否存在或者文件为空。</div>
+    $sms='<div class="alert alert-green margin-top">	<span class="close rotate-hover padding-top"></span><strong>Congratulations/strong>Program installed successfully.</div>
+    <div class="margin-large text-center"><a href="./index.php" class="button bg-red ">Enter home page</a></div>
+        <div class="alert alert-green margin-top">	<span class="close rotate-hover "></span><strong>Remind:</strong>If the site is not working properly, please contact the administrator.</div> //若程序无法正常工作，请编辑config.php文件查看的apiKey填写正确。或者检查config.php文件是否存在或者文件为空。
          
     </div>';
     unlink('./install.php');
 }else {
-    $sms='<div class="alert alert-red margin-top">	<span class="close rotate-hover"></span><strong>提示：</strong>安装失败!请检查文件写入权限</div>';
+    $sms='<div class="alert alert-red margin-top">	<span class="close rotate-hover"></span><strong>Remind:</strong>Install failed, please check permission./div>';
 }
 fclose($fp);
 
 }else{
-    $sms='错误非法操作!';
+    $sms='Illegal request.';
 }
 
 switch ($_GET['step'])
 {
 case '2':
   echo '<div class="panel border-sub">
-    <div class="panel-head  border-sub bg-sub">	<strong>服务器信息</strong>
+    <div class="panel-head  border-sub bg-sub">	<strong>Server information:</strong>
     </div>
     <div class="panel-body">
     
@@ -109,11 +109,11 @@ case '2':
             <table class="table">
                 <tbody>
                     <tr>
-                        <th>服务器IP</th>
+                        <th>Server IP</th>
                         <th class="text-gray">'.$_SERVER['SERVER_ADDR'].'</th>
                     </tr>
                     <tr>
-                        <th>服务器所在地</th>
+                        <th>Server location</th>
                         <th class="text-gray">'.gipcountry().'</th>
                     </tr>
                     
@@ -122,12 +122,12 @@ case '2':
         </div>
  </div>
  <div class="alert alert-yellow">
-		<span class="close rotate-hover"></span><strong>注意：</strong>本程序无法运行在中国大陆服务器上，请检查你的服务器所在地，若您的服务器所在位置为中国大陆，将无法使用本程序。</div>
+		<span class="close rotate-hover"></span><strong>Notice:</strong>Please check your location before continue.</div>
 </div>
 
 
 <div class="panel border-sub margin-top">
-    <div class="panel-head  border-sub bg-sub">	<strong>基础环境支持</strong>
+    <div class="panel-head  border-sub bg-sub">	<strong>Basic environment support</strong>
     </div>
     <div class="panel-body">
     
@@ -136,15 +136,15 @@ case '2':
             <table class="table">
                 <tbody>
                     <tr>
-                        <th>PHP版本（必须 >= 5.3）</th>
+                        <th>PHP Version（need >= 5.3）</th>
                         <th class="text-gray">'.phpversion().'</th>
                     </tr>
                     <tr>
-                        <th>CURL支持</th>
+                        <th>CURL support</th>
                         '.curl_exists().'
                     </tr>
                     <tr>
-                        <th>打开远程文件（allow_url_fopen）</th>
+                        <th>Open remote file（allow_url_fopen）</th>
                         '.Check_allow_urlopen().'
                     </tr>
                     
@@ -153,36 +153,36 @@ case '2':
         </div>
  </div>
  <div class="alert alert-red">
-		<span class="close rotate-hover"></span><strong>注意：</strong>切勿在中国大陆服务商（如 阿里云 腾讯云）提供的主机上安装本程序，以免造成不必要的麻烦。</span></div>
+		<span class="close rotate-hover"></span><strong>Notice:</strong>Please double check server location before installing.</span></div>
 </div>
 
 
 <div class="panel border-sub margin-top">
-    <div class="panel-head  border-sub bg-sub">	<strong>代理测试</strong>
+    <div class="panel-head  border-sub bg-sub">	<strong>Proxy test.</strong>
     </div>
     <div class="panel-body"><div class="xs12 xm6 xb6 padding">
     <video controls="controls" class="img-responsive">
   <source src="./vs.php?vv=60ItHLz5WEA&quality=360" type="video/mp4">
-你的浏览器已经严重过时！无法播放视频,请更换新一代HTML5浏览器
+Your browser is out of date and cannot play HTML5 files, please update your browser.
 </video>
 </div>
 <div class="panel-body"><div class="xs12 xm6 xb6 padding ">
-<h3 class="text-dot">提示:</h3>
-<p><strong class="text-sub">请检查左侧或上方视频是否能播放出来</strong></p>
-<p class="text-yellow">若无法播放且控制条为灰色，先检查你的主机环境是否符合上方所示的安装条件，若全部符合也播不出来，建议刷新一下此页面再试，建议多试几次。若依旧不行建议将程序全部安装完成后再试。</p>
-<p class="text-green">若视频能正常播放可直接继续下一步。</p>
+<h3 class="text-dot">Remind:</h3>
+<p><strong class="text-sub">Please check if the video is playable.</strong></p>
+<p class="text-yellow">If not, please recheck all the information or refresh and try again.</p>
+<p class="text-green">You may continue if the video can be played.</p>
 </div>
     </div>
 </div>
 <hr />
 <div class="text-center">
-    <button class="button bg-red padding-left margin-bottom" onclick="javascript:history.back(-1);">上一步</button>
-    <button class="button bg-red padding-left margin-bottom" onclick="window.location.href=\'install.php?step=3\'">继续</button>
+    <button class="button bg-red padding-left margin-bottom" onclick="javascript:history.back(-1);">Previous step</button>
+    <button class="button bg-red padding-left margin-bottom" onclick="window.location.href=\'install.php?step=3\'">Continue</button>
 </div>';
   break;
 case '3':
   echo '<div class="panel border-sub">
-    <div class="panel-head  border-sub bg-sub">	<strong>参数设定</strong>
+    <div class="panel-head  border-sub bg-sub">	<strong>Parameter settings</strong>
     </div>
     <div class="panel-body">
         <div>
@@ -191,28 +191,28 @@ case '3':
                 <label class="label font-b">Youtube API V3 KEY</label>
                 <input type="text" name="key" class="input" placeholder="KEY" />
                 
-                <label class="label font-b padding-small-top">国家代码</label>
-                <input type="text" class="input" name="gjcode" placeholder="根据国家代码获取不同国家的热门视频" />
+                <label class="label font-b padding-small-top">Country code:</label>
+                <input type="text" class="input" name="gjcode" placeholder="This determines the videos on the home page" />
                 
-                <span class="padding-small-top">这个填一个ISO3166标准的国际代码，默认建议填HK,一般为两位英文字母（如 台湾=TW，日本=JP）长度为2位。所填国家需要Youtube支持（可以从Youtube页面位置列表中看到），切记不能填CN，填CN或其他不支持代码将导致程序报错。如果你不知道某个国家的代码请访问<a href="http://doc.chacuo.net/iso-3166-1" class="text-dot "target="_blank">http://doc.chacuo.net/iso-3166-1</a></span>
+                <span class="padding-small-top">An ISO3166 standard code is needed<a href="http://doc.chacuo.net/iso-3166-1" class="text-dot "target="_blank">http://doc.chacuo.net/iso-3166-1</a></span>
                 
-                <label class="label font-b padding-small-top">网站名字</label>
-                <input type="text" class="input"  name="title" placeholder="Title名称" />
+                <label class="label font-b padding-small-top">Site name</label>
+                <input type="text" class="input"  name="title" placeholder="Title" />
                 
-                <label class="label font-b padding-small-top">站点名字</label>
-                <input type="text" class="input" name="sname" placeholder="页面上将显示这个名字" />
+                <label class="label font-b padding-small-top">Site name</label>
+                <input type="text" class="input" name="sname" placeholder="This shows up on the page" />
                 
-                <label class="label font-b padding-small-top">加/解密密钥</label>
-                <input type="text" class="input" name="edkey" placeholder="用于加密解密url，请填写一些杂乱无序的字符串." />
+                <label class="label font-b padding-small-top">cipher</label>
+                <input type="text" class="input" name="edkey" placeholder="Fill in some random letters/numbers" />
                 
-                <span class="padding-small-top">这个乱填一个字符串就可以，不需要记下来，建议长度10位以上。推荐使用<a href="https://randomkeygen.com/" class="text-dot" target="_blank">在线随机生成</a></span>
+                <span class="padding-small-top">Recommend using <a href="https://randomkeygen.com/" class="text-dot" target="_blank"> to generate random key.</a></span>
                 
-                <label class="label font-b padding-small-top">你的邮箱</label>
-                <input type="text" class="input" name="email" placeholder="请务必认真填写真实有效的Email地址" />
+                <label class="label font-b padding-small-top">Email</label>
+                <input type="text" class="input" name="email" placeholder="Real email" />
                 
                 <div class="text-center padding-top">
-                    <button class="button bg-red padding-left margin-bottom" onclick="javascript:history.back(-1);">上一步</button>
-    <button class="button bg-red padding-left margin-bottom" type="submit">继续</button>
+                    <button class="button bg-red padding-left margin-bottom" onclick="javascript:history.back(-1);">Previous step</button>
+    <button class="button bg-red padding-left margin-bottom" type="submit">continue</button>
                 </div>
             </form>
         </div>
@@ -221,14 +221,14 @@ case '3':
   break;
 case '4':
   echo '<div class="panel border-sub">
-    <div class="panel-head  border-sub bg-sub">	<strong>安装状态</strong>
+    <div class="panel-head  border-sub bg-sub">	<strong>Install status</strong>
     </div>
     <div class="panel-body">'.$sms.'</div>';
     url_part($_GET['sname']);
   break;
 default:
   echo ' <div class="panel border-sub">
-    <div class="panel-head  border-sub bg-sub">	<strong>安装须知</strong>
+    <div class="panel-head  border-sub bg-sub">	<strong>Notice</strong>
     </div>
     <div class="panel-body">
         <div id="a5" class="margin-small"></div>
@@ -262,8 +262,8 @@ default:
         </div>
         <div class="text-center">
                 <label class="text-big">
-                <input type="checkbox" id="regText">我已经阅读并同意此协议</label>
-                <button class="button bg-red padding-left margin-bottom" disabled id="regBtn" style="display: inline-block;" onclick="window.location.href=\'install.php?step=2\'">继续
+                <input type="checkbox" id="regText">I agree to the terms and conditions</label>
+                <button class="button bg-red padding-left margin-bottom" disabled id="regBtn" style="display: inline-block;" onclick="window.location.href=\'install.php?step=2\'">Continue
                 </button>
 
            
@@ -298,19 +298,19 @@ function gipcountry(){
  
  function curl_exists(){
      if (function_exists("curl_init")) {
-	return 	'<th class="text-gray">支持</th>';
+	return 	'<th class="text-gray">Supported</th>';
 	} else {
 		$ch = curl_init();
-	return '<th class="text-dot">不支持，请启用Curl</th>';
+	return '<th class="text-dot">Not supported, please enable Curl</th>';
 	} 
  }
  
  function Check_allow_urlopen(){
      if (get_cfg_var('allow_url_fopen')) {
-	return 	'<th class="text-gray">支持</th>';
+	return 	'<th class="text-gray">Supported</th>';
 	} else {
 		$ch = curl_init();
-	return '<th class="text-dot">不支持，请联系服务商或自行启用</th>';
+	return '<th class="text-dot">Not supported, please enable</th>';
 	} 
  }
  
