@@ -193,7 +193,7 @@ ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
         echo '<p class="h6" style="line-height: 1.7">This site video content from the Internet.<br>
 If inadvertently violate your copyright.<br>
 Send copyright complaints to '.EMAIL.'! We will response within 48 hours!<br></p>';
-echo '<h6 class="pt-3"><b>用户须知：</b><h6>';
+echo '<h6 class="pt-3"><b>Notice：</b><h6>';
         echo '<p class="h6" style="line-height: 1.7">Please read the following carefully, using this site means that you agree with the following statements:<br>
         1.This site is not responsible for any information presented since we do not create or manage those contents.<br>
         2.Please stop viewing this site immidiately if you are told to do so.<br>
