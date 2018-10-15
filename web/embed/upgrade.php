@@ -25,7 +25,7 @@
            echo 'Please download from：<a href="'.$up['links'].'" target="_blank">'.$up['links'].'</a></br>';
            echo 'Update log：'.$up['des'];
         } else{
-          echo 'Failed due to permission'; 
+          echo 'You do not have permission to perform this operation.'; 
         }
         ?>    
 </body>
